@@ -1,3 +1,37 @@
-<ion-app>
-  <ion-router-outlet></ion-router-outlet>
-</ion-app>
+<ion-content color="light" >
+  <ion-list [inset]="true" class="icontent">
+    <ion-item *ngFor="let estudiante of estudiantes">
+      <ion-label>{{estudiante.nombre}}</ion-label>
+      <ion-label>{{estudiante.apellido}}</ion-label>
+    </ion-item>
+    
+  </ion-list>
+  <ion-button class="tamañoboton" id="open-modal" expand="block">Abrir formulario</ion-button>
+  <ion-modal trigger="open-modal" (willDismiss)="onWillDismiss($event)">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-button (click)="cancel()">Cancel</ion-button>
+          </ion-buttons>
+          <ion-title>Welcome</ion-title>
+          
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <ion-item>
+          <ion-label position="stacked">Ingresa el nombre</ion-label>
+          <ion-input type="text" placeholder="Your name" [(ngModel)]="name"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Ingresa el apellido</ion-label>
+          <ion-input type="text" placeholder="Your name" [(ngModel)]="apellido"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-button (click)="confirm()">Subir</ion-button>
+        </ion-item>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+</ion-content>
+
