@@ -12,4 +12,7 @@ export class EstudianteService {
   getEstudiantes(){
     return this.http.get<any>(BASE);
   }
+  createEstudiantes(data:any){
+    return this.http.post('http://localhost:3000/api/estudiantes',data)
+  }
 }

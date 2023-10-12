@@ -20,15 +20,14 @@
       </ion-header>
       <ion-content class="ion-padding">
         <ion-item>
-          <ion-label position="stacked">Ingresa el nombre</ion-label>
-          <ion-input type="text" placeholder="Your name" [(ngModel)]="name"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label position="stacked">Ingresa el apellido</ion-label>
-          <ion-input type="text" placeholder="Your name" [(ngModel)]="apellido"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-button (click)="confirm()">Subir</ion-button>
+          <form #estudiantePost="ngForm" (ngSubmit)="onSubmit(estudiantePost.value)" >
+            <ion-label position="stacked">Ingresa el nombre</ion-label>
+            <ion-input name="nombre" type="text" placeholder="Your name" ngModel></ion-input>
+            <ion-label position="stacked">Ingresa el apellido</ion-label>
+            <ion-input name="apellido" type="text" placeholder="Your name" ngModel></ion-input>
+            <ion-button type="submit" >Subir</ion-button>
+          </form>
+          
         </ion-item>
       </ion-content>
     </ng-template>
